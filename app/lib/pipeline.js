@@ -4,7 +4,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('express-method-override');
 var home = require('../controllers/home');
-var tasks = require('../controllers/tasks');
+//var tasks = require('../controllers/tasks');
 var priorities = require('../controllers/priorities');
 
 module.exports = function(app, express){
@@ -29,7 +29,7 @@ module.exports = function(app, express){
   app.get('/priorities/new', priorities.init);
   app.post('/priorities', priorities.create);
   app.get('/priorities', priorities.index);
-  //app.get('/priorities/:id', priorities.show);
+  app.get('/priorities/:id', priorities.show);
 
   console.log('Pipeline Configured');
 };
