@@ -11,7 +11,7 @@ block content
     tbody
       each priority in priorities
         tr
-          td= priorities.name
-          td(style='background-color:#{priority.color;')= priority.color
+          td= priority.name
+          td(style='background-color:#{priority.color};')
           td= priority.value
 

@@ -5,8 +5,8 @@ var _     = require('lodash');
 
 function Priority(o){
   this.name   = o.name;
-  this.number = o.number;
   this.color  = o.color;
+  this.value = o.value;
 }
 
 Object.defineProperty(Priority, 'collection', {
