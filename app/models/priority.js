@@ -49,3 +49,4 @@ module.exports = Priority;
 function changePrototype(obj){
   return _.create(Priority.prototype, obj);
 }
+

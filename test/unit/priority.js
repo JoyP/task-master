@@ -7,7 +7,7 @@ var Priority = require('../../app/models/priority');
 var dbConnect = require('../../app/lib/mongodb');
 var Mongo = require('mongodb');
 
-var p1, p2, p3, p4;
+var p1;
 
 describe('Priority', function(){
   before(function(done){
@@ -28,11 +28,11 @@ describe('Priority', function(){
 
   describe('constructor', function(){
     it('should create a new Priority object', function(){
-      var medium = new Priority({name:'medium', color:'red', number:'5'});
+      var medium = new Priority({name:'medium', color:'red', value:'5'});
 
       expect(medium).to.be.instanceof(Priority);
       expect(medium.name).to.equal('medium');
-      expect(medium.number).to.equal('5');
+      expect(medium.value).to.equal('5');
       expect(medium.color).to.equal('red');
     });
   });

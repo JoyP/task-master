@@ -21,9 +21,9 @@ module.exports = function(app, express){
   app.get('/tasks/new', tasks.init);
   app.post('/tasks', tasks.create);
   app.get('/tasks', tasks.index);
-  //app.get('/tasks/:id', tasks.show);
-  //app.get('/tasks/:id/task', tasks.test);
-  //app.post('/tasks/:id/task', tasks.addTest);
+  app.get('/tasks/:id', tasks.show);
+//  app.get('/tasks/:id/task', tasks.test);
+//  app.post('/tasks/:id/task', tasks.addTest);
 
 
   app.get('/priorities/new', priorities.init);

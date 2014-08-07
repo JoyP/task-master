@@ -1,9 +1,12 @@
 'use strict';
 
 var Task = require('../models/task');
+var Priority = require('../models/priority');
 
 exports.init = function(req, res){
-  res.render('tasks/init');
+  Priority.all(function(priorities){
+  res.render('tasks/init', {priorities:priorities});
+  });
 };
 
 exports.create = function(req, res){
@@ -21,7 +24,7 @@ exports.index = function(req, res){
 
 exports.show = function(req, res){
   Task.findById(req.params.id, function(task){
-    res.render('task/show', {task:task});
+    res.render('tasks/show', {task:task});
   });
 };
 
