@@ -4,7 +4,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('express-method-override');
 var home = require('../controllers/home');
-//var tasks = require('../controllers/tasks');
+var tasks = require('../controllers/tasks');
 var priorities = require('../controllers/priorities');
 
 module.exports = function(app, express){
@@ -18,9 +18,9 @@ module.exports = function(app, express){
   app.get('/faq', home.faq);
   app.get('/contact', home.contact);
 
-  //app.get('/tasks/new', tasks.init);
-  //app.post('/tasks', tasks.create);
-  //app.get('/tasks', tasks.index);
+  app.get('/tasks/new', tasks.init);
+  app.post('/tasks', tasks.create);
+  app.get('/tasks', tasks.index);
   //app.get('/tasks/:id', tasks.show);
   //app.get('/tasks/:id/task', tasks.test);
   //app.post('/tasks/:id/task', tasks.addTest);
