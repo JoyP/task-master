@@ -1,3 +1,25 @@
 extends ../shared/template
 block content
   h2 Tasks Page!
+
+  table
+    thead
+      tr
+        th Name
+        th Due
+        th Photo
+        th Complete
+        th Type
+        th Priority
+    tbody
+      each task in tasks
+        tr(style='background-color: #{task.priority.color};')
+          td= task.name
+          td= task.dueDate
+          td= task.photo
+          td 
+            form(method='post', action='/tasks')
+              input(name='checkMark', type='radio', checked= task.isComplete === true)
+              button Update
+          td= task.type
+          td= task.priority

@@ -2,7 +2,7 @@ extends ../shared/template
 block content
   h2 New Task
 
-  form(method='post', action='/task')
+  form(method='post', action='/tasks')
     label Task Name:
     input(name='name', type='text', placeholder='Get Milk', autofocus=true)
     label Due Date:
@@ -14,5 +14,6 @@ block content
     label Choose Priority:
     select(name='priority')
       each priority in priorities
-        option #{priority.name} 
+        option #{priority.name} #{ priority._id}
+        //option #{priority}
     button Add Task

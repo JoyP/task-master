@@ -18,7 +18,9 @@ exports.create = function(req, res){
 
 exports.index = function(req, res){
   Task.all(function(tasks){
-    res.render('tasks/index', {tasks:tasks});
+    Priority.all(function(priorities){
+     res.render('tasks/index', {tasks:tasks, priorities:priorities});
+  });
   });
 };
 

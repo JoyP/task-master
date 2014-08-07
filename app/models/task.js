@@ -2,13 +2,18 @@
 
 var Mongo = require('mongodb');
 var _     = require('lodash');
+var moment=require('moment');
+
+var Priority = require('../models/priority');
 
 function Task(o){
-  this.name     = o.name;
-  this.dueDate  = o.dueDate;
-  this.photo    = o.photo;
-  this.type     = o.type;
-  this.priority = o.priority;
+  this.name       = o.name;
+  this.dueDate    = moment(o.dueDate).format('l');
+  this.photo      = o.photo;
+  this.type       = o.type.split(',').map(function(s){return s.trim();});
+  this.priority   = o.priority;
+  this.isComplete = false;
+//  this.priorityId = Mongo.ObjectID(priority._id);
 }
 
 Object.defineProperty(Task, 'collection', {
@@ -18,6 +23,10 @@ Object.defineProperty(Task, 'collection', {
 Task.prototype.insert = function(cb){
   Task.collection.save(this, cb);
 };
+
+//Task.prototype.color = function(cb){
+//  priority.findById();
+//};
 
 Task.all = function(cb){
   Task.collection.find().toArray(function(err, objects){
